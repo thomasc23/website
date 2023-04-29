@@ -1,7 +1,8 @@
 body {
 	margin:0;
 	padding:0;
-	font: 18vw/36vw Georgia, "Times New Roman", Times, serif;
+	font: 18px/36px Georgia, "Times New Roman", Times, serif;
+	font-size: 5vw;
 	background-color: #fff;
 	color:#000;
 	font-family: 'Quando', serif; 
@@ -24,13 +25,13 @@ img {
 }
 
 h1 {
-	font: 35vw Georgia, "Times New Roman", Times, serif;
+	font: 35px Georgia, "Times New Roman", Times, serif;
 	/* color: #D14334;*/
 	/* text-align: center;*/
 }
 h2 {
 	/* color:#65dd20;*/
-	font: 22vw/44vw Georgia, "Times New Roman", Times, serif;
+	font: 22px/44px Georgia, "Times New Roman", Times, serif;
 }
 
 a, a:active, a:hover, a:visited {
