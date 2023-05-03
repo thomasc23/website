@@ -2,6 +2,16 @@ body {
 	font-family: 'Quando', serif;
 }
 
+h1 {
+	font: 2em Georgia, "Times New Roman", Times, serif;
+	/* color: #D14334;*/
+	/* text-align: center;*/
+}
+h2 {
+	/* color:#65dd20;*/
+	font: 1.5em Georgia, "Times New Roman", Times, serif;
+}
+
 .sidenav {
   height: 100%;
   width: 140px;
