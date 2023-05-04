@@ -37,7 +37,7 @@ h2 {
 }
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+  margin-left: 180px; /* Same as the width of the sidenav */
   margin-right: 160px;
   font-size: 24px; 
   padding: 0px 10px;
