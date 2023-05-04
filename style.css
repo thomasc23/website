@@ -48,6 +48,10 @@ h2 {
   .sidenav a {font-size: 18px;}
 }
 
+* {
+  box-sizing: border-box;
+}
+
  /* Three image containers (use 25% for four, and 50% for two, etc) */
  .column {
   float: left;
