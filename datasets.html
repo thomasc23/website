@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datasets - Thomas Chamberlain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="sidenav">
+  <a href="./index.html">About</a>
+  <a href="./research.html">Research</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./datasets.html" class="hidden-link active">Datasets</a>
+  <a href="./visualizations.html" class="hidden-link">Explore</a>
+</nav>
+
+<main class="main">
+  <h1>Datasets</h1>
+
+  <p>Datasets I have collected or compiled for research purposes.</p>
+
+  <article class="paper">
+    <h3 class="paper-title">Example Dataset Title</h3>
+    <p class="paper-meta">Format: CSV | Updated: 2024</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">Description</button>
+    <div class="abstract">
+      <p>Description of the dataset, its sources, and how it was compiled. Include information about variables, time period covered, and any relevant documentation.</p>
+      <p><a href="#">Download (CSV)</a> | <a href="#">Codebook (PDF)</a></p>
+    </div>
+  </article>
+
+  <!-- Add more datasets as needed -->
+
+</main>
+
+<script>
+function toggleAbstract(button) {
+  const abstract = button.nextElementSibling;
+  abstract.classList.toggle('show');
+  button.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore - Thomas Chamberlain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="sidenav">
+  <a href="./index.html">About</a>
+  <a href="./research.html">Research</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./datasets.html" class="hidden-link">Datasets</a>
+  <a href="./visualizations.html" class="hidden-link active">Explore</a>
+</nav>
+
+<main class="main">
+  <h1>Explore</h1>
+
+  <p>Interactive visualizations and data explorations.</p>
+
+  <article class="paper">
+    <h3 class="paper-title">Example Visualization Title</h3>
+    <p class="paper-meta">Topic: Political Behavior | Interactive</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">About</button>
+    <div class="abstract">
+      <p>Description of this visualization and what it shows.</p>
+    </div>
+    <!-- Embed iframe or interactive content here -->
+    <!-- <iframe src="your-visualization-url" width="100%" height="500" frameborder="0"></iframe> -->
+  </article>
+
+  <!-- Add more visualizations as needed -->
+
+</main>
+
+<script>
+function toggleAbstract(button) {
+  const abstract = button.nextElementSibling;
+  abstract.classList.toggle('show');
+  button.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

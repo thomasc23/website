@@ -1,56 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thomas Chamberlain</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research - Thomas Chamberlain</title>
   <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <body>
-    <div class="sidenav">
-      <a href="./index.html">About</a>
-      <a href="./research.html">Research</a>
-      <a href="./contact.html">Contact</a>
-    </div>
-    
-    <div class="main">
-     <h1>Explaining Ideological Variation in Presidential Campaign Stump Speeches</h1>
-     <p>I use the text of Presidential stump speeches from 1952 to 1996 to quantify within-candidate ideological variation in presidential platforms. I show that the ideological content of these speeches vary substantially from one location to the next and that the policy platforms of Presidential candidates diverge not only across parties, but across the economic and racial divisions of the American electorate. Using the text of these speeches and methods from natural language processing, I find that while both Democratic and Republican candidates campaign on more conservative economic policies in wealthier counties, Republican candidates alone deliver more socially conservative messages to low-income minority counties relative to their low- and high-income white counterparts.</p>
-     <div class="row">
-      <div class="column">
-        <img src="./Stump Map.png" alt="Stump Speech Map" style="width:100%">
-      </div>
-      <div class="column">
-        <img src="./guided_projections.png" alt="Speech Projections" style="width:100%">
-      </div>
-    </div>
-     <h1>Redlining and Police Shootings</h1>
-     <p>Social scientists are often interested in the long-run effects of political and economic institutions. In this paper, I show how the U.S. Federal Government's historical involvement in private housing markets is associated with contemporary variation in police violence toward American citizens. In particular, I show that redlining scores — neighborhood-level grades assigned by the Federal Housing Administration (FHA) in the 1930s to determine suitability for federally-backed mortgages — predict the number of fatal encounters with police in the 21st century. I employ a Bayesian negative binomial count model and a hierarchical extension to support my argument. </p>
-     <div class="row">
-      <div class="column">
-        <img src="./data_raw.png" alt="Data" style="width:100%">
-      </div>
-      <div class="column">
-        <img src="./fitted_values_posterior_draws.png" alt="Posterior Draws" style="width:100%">
-      </div>
-      <div class="column">
-        <img src="./inter_city_heterogeneity.png" alt="Heterogeneity" style="width:100%">
-      </div>
-    </div> 
-     <h1>Member-level Effects of Being in the Majority Core</h1>
-     <p>In this paper, I examine whether occupying a privileged ideological position with respect to the social preferences of the legislature comes with financial benefits for members of Congress. I build on work that generalizes the median to spatial models of legislative bargaining in multiple dimensions and provides an algorithm for efficient computation of the majority core. After constructing a dataset that relates core membership, (euclidean) distance to the core, and PAC contributions for all members of Congress from the 107th to 114th Congresses (roughly 2001-2017), I estimate a variety of models to determine whether being in or near the core is associated with a greater dollar value of candidate contributions stemming from organized interests. While most results do not achieve statistical significance, the majority of specifications produce estimates whose sign is consistent with a PAC contribution driven financial "reward" for being in the majority core.</p>
-     <div class="row">
-      <div class="column">
-        <img src="./108_109_treat.png" alt="Identification" style="width:100%">
-      </div>
-      <div class="column">
-        <img src="./les_table.png" alt="Legislative Effectiveness" style="width:100%">
-      </div>
-    </div> 
-    </div>
+<nav class="sidenav">
+  <a href="./index.html">About</a>
+  <a href="./research.html" class="active">Research</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./datasets.html" class="hidden-link">Datasets</a>
+  <a href="./visualizations.html" class="hidden-link">Explore</a>
+</nav>
 
-       
-    </body>
+<main class="main">
+  <h1>Research</h1>
+
+  <h2 class="section-title">Working Papers</h2>
+
+  <article class="paper">
+    <h3 class="paper-title">Changing Votes Without Persuasion: How Salience Changes Preferences</h3>
+    <p class="paper-meta">Solo-authored</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+    <div class="abstract">
+      <div class="abstract-inner">
+        <div class="abstract-content">
+          <p>Candidates often try to improve their electoral chances by raising the salience of new or peripheral issues. Despite longstanding recognition that this tactic <em>can</em> be effective, we lack rigorous empirical demonstration of <em>why</em> it is effective. In this paper, I show that manipulating issue salience changes the tradeoffs—across issues and between policy and partisanship—voters are willing to make. I embed salience-raising vignette treatments in a discrete choice experiment and estimate dimension-specific weight parameters from a random utility spatial voting model. The interventions make voters more willing to sacrifice policy congruence on non-salient dimensions and in-party attachments to secure policy congruence on salient issues. Simulation exercises show that even with fixed preferences and fixed candidate platforms, changing the tradeoffs voters are willing to make can flip their vote. Effects vary across income and education levels with important implications for understanding electoral realignment.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <h3 class="paper-title">(Mis)Estimating Voter Preferences With Standard Survey Items</h3>
+    <p class="paper-meta">with Scott Abramson and Dot Sawler</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+    <div class="abstract">
+      <div class="abstract-inner">
+        <div class="abstract-content">
+          <p>Researchers frequently aggregate survey questions to produce latent measures of voters' preferences. Often, these measures are interpreted in the context of the spatial model of voting. We highlight how this spatial interpretation of the standard IRT approach requires strong assumptions, especially when survey items do not impose a direct comparison of policy alternatives and include many ordered (Likert-like) response levels. To show that the manner in which we elicit preferences (i.e. the survey items themselves) can induce violations of these assumptions, we induce incentivized ground-truth multidimensional preferences in a survey setting. Then, using a battery of methods commonly used to project survey responses into an underlying, potentially multidimensional, preference-space, we show that, on the whole, these standard methods fail to accurately describe the true structure of the data. Finally, we develop an approach that explicitly forces comparisons between policies and show that it outperforms extant methods.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <h3 class="paper-title">Party All the Time? Evaluating the Role of Partisan Redistricting and Measurement Strategies for Racially Polarized Voting</h3>
+    <p class="paper-meta">with Mayya Komisarchik and Sidak Yntiso</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+    <div class="abstract">
+      <div class="abstract-inner">
+        <div class="abstract-content">
+          <p>Academic and legal debates about the consequences of partisan gerrymandering for representation and competitive balance have raged for decades. One common, though rarely studied, argument wielded by the gerrymander's critics holds that ethnic and racial minority communities disproportionately suffer the harms of unfair districting, even if the mapmaker's motivations are primarily partisan. In the first part of this project, we directly test this claim by simulating electorates with varying levels of geographic segregation between minority and non-minority residents and varying assumptions about districters' partisan motivations. We examine how much each of these elements contributes to the existence of racially polarized voting (RPV), majority-minority districts, and the probability that minority voters can elect the candidate they prefer. We show that geographic concentration far outweighs the role that even the most partisan redistricters play in the creation of racially polarized districts. We further use our simulated districts to interrogate the current state-of-the-art approaches to measuring RPV in academic literature and litigation: ecological regression (ER), ecological inference (EI), and multilevel regression and poststratification (MRP). We demonstrate that existing methods—including ecological inference (EI), Multilevel Regression and Poststratification (MRP) and other approaches—frequently fail to reliably identify legally significant vote dilution, often producing results indistinguishable from random chance.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <h3 class="paper-title">Green Industrial Policy as Presidential Pork? Evidence from the 2024 Presidential Election</h3>
+    <p class="paper-meta">with Lawrence Rothenberg</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+    <div class="abstract">
+      <div class="abstract-inner">
+        <div class="abstract-content">
+          <p>The 117th Congress authorized trillions of dollars in federal spending to rebuild American infrastructure and facilitate clean energy technologies. Many news outlets reported that spending was disproportionately targeted to 2024 Presidential election battleground states, leading critics to accuse the Biden administration of pursuing political gains. By contrast, senior Biden officials emphasized policy objectives such as re-shoring manufacturing jobs lost to trade liberalization, and that monies went to solidly Republican areas. Yet, given the large number of manufacturing communities in rust belt battleground states, re-shoring and political pursuits may have been functionally equivalent. However, following a uniform Republican swing in the 2024 election that included a sweep of swing states, some concluded that any particularistic motivations in allocating expenditures failed to generate increased Democratic support. But, just as monies flowing to battleground areas is not definitive evidence of particularism, a uniform national swing is not evidence of null electoral effects. In this analysis we address both concerns. We investigate issues of particularistic allocation and electoral effects utilizing transaction-level data on federal infrastructure outlays, information on the location, investment amount, and number of jobs created at private manufacturing sites announced under the IRA, and voting returns extending to the precinct-level. We find (1) little support for political targeting of funds, even if monies flowed to swing areas; and (2) some evidence of a causal impact of spending favoring the electoral fortunes of Kamala Harris. Thus, the Biden administration was seemingly pursuing broad policy goals but the expenditure of vast sums had some electoral consequences nonetheless.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<script>
+function toggleAbstract(button) {
+  const abstract = button.nextElementSibling;
+  abstract.classList.toggle('show');
+  button.classList.toggle('open');
+}
+</script>
+
+</body>
 </html>
