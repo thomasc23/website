@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore - Thomas Chamberlain</title>
+  <title>Priors - Thomas Chamberlain</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -13,15 +13,15 @@
 <nav class="sidenav">
   <a href="./index.html">About</a>
   <a href="./research.html">Research</a>
+  <a href="./visualizations.html" class="active">Priors</a>
   <a href="./contact.html">Contact</a>
   <a href="./datasets.html" class="hidden-link">Datasets</a>
-  <a href="./visualizations.html" class="hidden-link active">Explore</a>
 </nav>
 
 <main class="main wide">
   <h1>Prior Visualization</h1>
 
-  <p>Visualize probability distributions commonly used as priors in Bayesian models. Select distributions, adjust parameters, and compare multiple distributions on the same plot.</p>
+  <p>I spend a lot of time writing models in Stan. When choosing priors, I sometimes like to visualize the beliefs about plausible parameter values that are encoded by a given choice. Select distributions, adjust parameters, and compare multiple distributions on the same set of axes.</p>
 
   <div id="distribution-plotter"></div>
 
