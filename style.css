@@ -182,6 +182,10 @@ a:hover {
   animation: fadeInUp 0.6s var(--ease-out) both;
 }
 
+.main.wide {
+  max-width: 1020px;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -461,5 +465,297 @@ a:hover {
     margin: 0;
     padding: 0;
     max-width: 100%;
+  }
+}
+
+/* ============================================================================
+   Distribution Plotter Styles
+   ============================================================================ */
+
+.dist-plotter {
+  margin-top: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.dist-plot-area {
+  background: var(--bg-paper);
+  border-radius: 6px;
+  padding: var(--space-sm);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: var(--space-md);
+}
+
+.dist-plot-area svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dist-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-height: calc(100vh - 2 * var(--space-md));
+  overflow-y: auto;
+}
+
+.dist-add-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.dist-select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.6rem 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-paper);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.dist-select:hover,
+.dist-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.dist-add-btn {
+  padding: 0.6rem 1.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--bg-paper);
+  background: var(--accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease-out);
+  white-space: nowrap;
+}
+
+.dist-add-btn:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.dist-add-btn:active {
+  transform: translateY(0);
+}
+
+.dist-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.dist-card {
+  background: var(--bg-paper);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.dist-card:hover {
+  border-color: var(--border-subtle);
+}
+
+.dist-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 0.4rem;
+}
+
+.dist-card-formula {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  padding-left: calc(18px + var(--space-sm));
+}
+
+.dist-visibility-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.dist-visibility-btn:hover {
+  transform: scale(1.1);
+}
+
+.dist-card-title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.dist-remove-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all var(--duration) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dist-remove-btn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.dist-card-params {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dist-param {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.dist-param-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dist-param-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dist-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.dist-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.dist-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.dist-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dist-number {
+  width: 70px;
+  padding: 0.4rem 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.dist-number:hover,
+.dist-number:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Hide number input spinners */
+.dist-number::-webkit-outer-spin-button,
+.dist-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dist-number[type=number] {
+  -moz-appearance: textfield;
+}
+
+.dist-card-description {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Responsive styles for distribution plotter */
+@media screen and (max-width: 900px) {
+  .dist-plotter {
+    grid-template-columns: 1fr;
+  }
+
+  .dist-plot-area {
+    position: static;
+  }
+
+  .dist-controls {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dist-param-control {
+    flex-wrap: wrap;
+  }
+
+  .dist-slider {
+    width: 100%;
+    flex: none;
+  }
+
+  .dist-number {
+    width: 100%;
   }
 }

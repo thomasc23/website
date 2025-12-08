@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore - Thomas Chamberlain</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 </head>
 <body>
 
@@ -16,33 +18,16 @@
   <a href="./visualizations.html" class="hidden-link active">Explore</a>
 </nav>
 
-<main class="main">
-  <h1>Explore</h1>
+<main class="main wide">
+  <h1>Prior Distribution Explorer</h1>
 
-  <p>Interactive visualizations and data explorations.</p>
+  <p>An interactive tool for visualizing probability density functions commonly used as Bayesian priors. Select distributions, adjust parameters with sliders, and compare multiple distributions on the same plot.</p>
 
-  <article class="paper">
-    <h3 class="paper-title">Example Visualization Title</h3>
-    <p class="paper-meta">Topic: Political Behavior | Interactive</p>
-    <button class="abstract-toggle" onclick="toggleAbstract(this)">About</button>
-    <div class="abstract">
-      <p>Description of this visualization and what it shows.</p>
-    </div>
-    <!-- Embed iframe or interactive content here -->
-    <!-- <iframe src="your-visualization-url" width="100%" height="500" frameborder="0"></iframe> -->
-  </article>
-
-  <!-- Add more visualizations as needed -->
+  <div id="distribution-plotter"></div>
 
 </main>
 
-<script>
-function toggleAbstract(button) {
-  const abstract = button.nextElementSibling;
-  abstract.classList.toggle('show');
-  button.classList.toggle('open');
-}
-</script>
+<script src="distributions.js"></script>
 
 </body>
 </html>
