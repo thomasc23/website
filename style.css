@@ -759,3 +759,70 @@ a:hover {
     width: 100%;
   }
 }
+
+/* ============================================================================
+   Misc Page Styles
+   ============================================================================ */
+
+.misc-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-lg) 0;
+}
+
+.misc-list li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  animation: fadeInUp 0.6s var(--ease-out) both;
+}
+
+.misc-list li:last-child {
+  border-bottom: none;
+}
+
+.misc-date {
+  grid-row: 1 / 3;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-top: 0.15rem;
+}
+
+.misc-list a {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--duration) var(--ease-out);
+}
+
+.misc-list a:hover {
+  color: var(--accent);
+}
+
+.misc-desc {
+  grid-column: 2;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .misc-list li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .misc-date {
+    grid-row: auto;
+    font-size: 0.8rem;
+  }
+
+  .misc-desc {
+    grid-column: 1;
+  }
+}
