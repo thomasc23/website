@@ -317,6 +317,11 @@ class DistributionPlotter {
     this.plotWidth = this.width - this.margin.left - this.margin.right;
     this.plotHeight = this.height - this.margin.top - this.margin.bottom;
 
+    // Fixed axis ranges
+    this.xMin = -5;
+    this.xMax = 10;
+    this.yMax = 1; // Will be calculated based on visible distributions
+
     this.init();
   }
 
@@ -494,40 +499,39 @@ class DistributionPlotter {
     this.updatePlot();
   }
 
-  calculateDomain() {
-    if (this.distributions.length === 0) {
-      return [-5, 5];
-    }
-
-    let minX = Infinity;
-    let maxX = -Infinity;
+  calculateYMax() {
+    // Calculate max y value across all visible distributions within the fixed x range
+    let yMax = 0;
+    const numPoints = 500;
+    const xStep = (this.xMax - this.xMin) / numPoints;
 
     this.distributions.forEach(dist => {
       if (!dist.visible) return;
       const distDef = distributions[dist.type];
-      const [dMin, dMax] = distDef.domain(dist.params);
-      minX = Math.min(minX, dMin);
-      maxX = Math.max(maxX, dMax);
+
+      for (let i = 0; i <= numPoints; i++) {
+        const x = this.xMin + i * xStep;
+        const y = distDef.pdf(x, dist.params);
+        if (isFinite(y) && !isNaN(y)) {
+          yMax = Math.max(yMax, y);
+        }
+      }
     });
 
-    if (minX === Infinity) {
-      return [-5, 5];
-    }
-
-    // Add small padding
-    const range = maxX - minX;
-    return [minX - range * 0.05, maxX + range * 0.05];
+    return yMax > 0 ? yMax * 1.1 : 1; // Add 10% padding
   }
 
   updatePlot() {
-    const [xMin, xMax] = this.calculateDomain();
+    const xMin = this.xMin;
+    const xMax = this.xMax;
     const numPoints = 500;
     const xStep = (xMax - xMin) / numPoints;
 
-    // Calculate all y values to find max
-    let yMax = 0;
-    const allPaths = [];
+    // Calculate yMax from visible distributions
+    const yMax = this.calculateYMax();
 
+    // Generate paths for all visible distributions
+    const allPaths = [];
     this.distributions.forEach(dist => {
       if (!dist.visible) return;
 
@@ -539,16 +543,11 @@ class DistributionPlotter {
         const y = distDef.pdf(x, dist.params);
         if (isFinite(y) && !isNaN(y)) {
           points.push({ x, y });
-          yMax = Math.max(yMax, y);
         }
       }
 
       allPaths.push({ points, color: dist.color });
     });
-
-    // Add padding to yMax
-    yMax *= 1.1;
-    if (yMax === 0) yMax = 1;
 
     // Scale functions
     const scaleX = (x) => this.margin.left + ((x - xMin) / (xMax - xMin)) * this.plotWidth;
@@ -557,10 +556,18 @@ class DistributionPlotter {
     // Build SVG
     let svgContent = '';
 
+    // Define clipping path
+    svgContent += `<defs>
+      <clipPath id="plot-clip">
+        <rect x="${this.margin.left}" y="${this.margin.top}"
+              width="${this.plotWidth}" height="${this.plotHeight}"/>
+      </clipPath>
+    </defs>`;
+
     // Background
     svgContent += `<rect x="${this.margin.left}" y="${this.margin.top}"
                          width="${this.plotWidth}" height="${this.plotHeight}"
-                         fill="var(--bg-paper)" rx="4"/>`;
+                         fill="#fff"/>`;
 
     // Grid lines
     const numGridLines = 5;
@@ -568,18 +575,18 @@ class DistributionPlotter {
       const y = this.margin.top + (i / numGridLines) * this.plotHeight;
       svgContent += `<line x1="${this.margin.left}" y1="${y}"
                            x2="${this.margin.left + this.plotWidth}" y2="${y}"
-                           stroke="var(--border)" stroke-dasharray="3,3" opacity="0.5"/>`;
+                           stroke="#ddd" stroke-dasharray="3,3" opacity="0.5"/>`;
     }
 
     // X-axis
     svgContent += `<line x1="${this.margin.left}" y1="${this.margin.top + this.plotHeight}"
                          x2="${this.margin.left + this.plotWidth}" y2="${this.margin.top + this.plotHeight}"
-                         stroke="var(--text-muted)" stroke-width="1"/>`;
+                         stroke="#666" stroke-width="1"/>`;
 
     // Y-axis
     svgContent += `<line x1="${this.margin.left}" y1="${this.margin.top}"
                          x2="${this.margin.left}" y2="${this.margin.top + this.plotHeight}"
-                         stroke="var(--text-muted)" stroke-width="1"/>`;
+                         stroke="#666" stroke-width="1"/>`;
 
     // X-axis ticks and labels
     const xTicks = this.calculateTicks(xMin, xMax, 6);
@@ -587,10 +594,10 @@ class DistributionPlotter {
       const x = scaleX(tick);
       svgContent += `<line x1="${x}" y1="${this.margin.top + this.plotHeight}"
                            x2="${x}" y2="${this.margin.top + this.plotHeight + 5}"
-                           stroke="var(--text-muted)"/>`;
+                           stroke="#666"/>`;
       svgContent += `<text x="${x}" y="${this.margin.top + this.plotHeight + 20}"
-                           text-anchor="middle" fill="var(--text-muted)"
-                           font-size="11" font-family="DM Sans, sans-serif">${this.formatTick(tick)}</text>`;
+                           text-anchor="middle" fill="#666"
+                           font-size="11" font-family="Georgia, serif">${this.formatTick(tick)}</text>`;
     });
 
     // Y-axis ticks and labels
@@ -599,22 +606,22 @@ class DistributionPlotter {
       const y = scaleY(tick);
       svgContent += `<line x1="${this.margin.left - 5}" y1="${y}"
                            x2="${this.margin.left}" y2="${y}"
-                           stroke="var(--text-muted)"/>`;
+                           stroke="#666"/>`;
       svgContent += `<text x="${this.margin.left - 10}" y="${y + 4}"
-                           text-anchor="end" fill="var(--text-muted)"
-                           font-size="11" font-family="DM Sans, sans-serif">${this.formatTick(tick)}</text>`;
+                           text-anchor="end" fill="#666"
+                           font-size="11" font-family="Georgia, serif">${this.formatTick(tick)}</text>`;
     });
 
     // Axis labels
     svgContent += `<text x="${this.margin.left + this.plotWidth / 2}" y="${this.height - 5}"
-                         text-anchor="middle" fill="var(--text-secondary)"
-                         font-size="12" font-family="DM Sans, sans-serif">x</text>`;
+                         text-anchor="middle" fill="#444"
+                         font-size="12" font-family="Georgia, serif">x</text>`;
     svgContent += `<text x="15" y="${this.margin.top + this.plotHeight / 2}"
-                         text-anchor="middle" fill="var(--text-secondary)"
-                         font-size="12" font-family="DM Sans, sans-serif"
+                         text-anchor="middle" fill="#444"
+                         font-size="12" font-family="Georgia, serif"
                          transform="rotate(-90, 15, ${this.margin.top + this.plotHeight / 2})">Density</text>`;
 
-    // Draw distribution paths
+    // Draw distribution paths (clipped to plot area)
     allPaths.forEach(({ points, color }) => {
       if (points.length < 2) return;
 
@@ -622,7 +629,7 @@ class DistributionPlotter {
         `${i === 0 ? 'M' : 'L'} ${scaleX(p.x).toFixed(2)} ${scaleY(p.y).toFixed(2)}`
       ).join(' ');
 
-      svgContent += `<path d="${pathData}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>`;
+      svgContent += `<path d="${pathData}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" clip-path="url(#plot-clip)"/>`;
     });
 
     this.svg.innerHTML = svgContent;

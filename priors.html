@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prior Visualization - Thomas Chamberlain</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <style>
+    body.wide {
+      max-width: 1000px;
+    }
+  </style>
 </head>
-<body>
+<body class="wide">
 
-<nav class="sidenav">
+<nav>
   <a href="./index.html">About</a>
   <a href="./research.html">Research</a>
-  <a href="./misc.html" class="active">Misc</a>
+  <a href="./misc.html" class="active">Miscellaneous</a>
   <a href="./contact.html">Contact</a>
   <a href="./datasets.html" class="hidden-link">Datasets</a>
 </nav>
 
-<main class="main wide">
-  <h1>Prior Visualization</h1>
+<h1>Prior Visualization</h1>
 
-  <p>I spend a lot of time writing models in Stan. When choosing priors, I sometimes like to visualize the beliefs about plausible parameter values that are encoded by a given choice. Select distributions, adjust parameters, and compare multiple distributions on the same set of axes.</p>
+<p>For building models in Stan.</p>
 
-  <div id="distribution-plotter"></div>
-
-</main>
+<div id="distribution-plotter"></div>
 
 <script src="distributions.js"></script>
 

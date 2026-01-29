@@ -2,84 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research - Thomas Chamberlain</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="sidenav">
+<nav>
   <a href="./index.html">About</a>
   <a href="./research.html" class="active">Research</a>
-  <a href="./misc.html">Misc</a>
+  <a href="./misc.html">Miscellaneous</a>
   <a href="./contact.html">Contact</a>
   <a href="./datasets.html" class="hidden-link">Datasets</a>
 </nav>
 
-<main class="main">
-  <h1>Research</h1>
+<h1>Research</h1>
 
-  <h2 class="section-title">Working Papers</h2>
+<h2 class="section-title">Working Papers</h2>
 
-  <article class="paper">
-    <h3 class="paper-title">Winning Without Persuading: Issue Salience and Vote Choice</h3>
-    <p class="paper-meta">Solo-authored</p>
-    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-    <div class="abstract">
-      <div class="abstract-inner">
-        <div class="abstract-content">
-          <p>Candidates often try to improve their electoral chances by raising the salience of new or peripheral issues. Despite longstanding recognition that this tactic <em>can</em> be effective, we lack rigorous empirical demonstration of <em>why</em> it is effective. In this paper, I show that manipulating issue salience changes the tradeoffs—across issues and between policy and partisanship—voters are willing to make. I embed salience-raising vignette treatments in a discrete choice experiment and estimate dimension-specific weight parameters from a random utility spatial voting model. The interventions make voters more willing to sacrifice policy congruence on non-salient dimensions and in-party attachments to secure policy congruence on salient issues. Simulation exercises show that even with fixed preferences and fixed candidate platforms, changing the tradeoffs voters are willing to make can flip their vote. Effects vary across income and education levels with important implications for understanding electoral realignment.</p>
-        </div>
-      </div>
-    </div>
-  </article>
+<article class="paper">
+  <h3 class="paper-title">Winning Without Persuading: Issue Salience and Vote Choice</h3>
+  <p class="paper-meta">Solo-authored</p>
+  <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract">
+    <p>Candidates often try to improve their electoral chances by raising the salience of new or peripheral issues. Despite longstanding recognition that this tactic <em>can</em> be effective, we lack rigorous empirical demonstration of <em>why</em> it is effective. In this paper, I show that manipulating issue salience changes the tradeoffs—across issues and between policy and partisanship—voters are willing to make. I embed salience-raising vignette treatments in a discrete choice experiment and estimate dimension-specific weight parameters from a random utility spatial voting model. The interventions make voters more willing to sacrifice policy congruence on non-salient dimensions and in-party attachments to secure policy congruence on salient issues. Simulation exercises show that even with fixed preferences and fixed candidate platforms, changing the tradeoffs voters are willing to make can flip their vote. Effects vary across income and education levels with important implications for understanding electoral realignment.</p>
+  </div>
+</article>
 
-  <article class="paper">
-    <h3 class="paper-title">(Mis)Estimating Voter Preferences With Standard Survey Items</h3>
-    <p class="paper-meta">with Scott Abramson and Dot Sawler</p>
-    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-    <div class="abstract">
-      <div class="abstract-inner">
-        <div class="abstract-content">
-          <p>Researchers frequently aggregate survey questions to produce latent measures of voters' preferences. Often, these measures are interpreted in the context of the spatial model of voting. We highlight how this spatial interpretation of the standard IRT approach requires strong assumptions, especially when survey items do not impose a direct comparison of policy alternatives and include many ordered (Likert-like) response levels. To show that the manner in which we elicit preferences (i.e. the survey items themselves) can induce violations of these assumptions, we induce incentivized ground-truth multidimensional preferences in a survey setting. Then, using a battery of methods commonly used to project survey responses into an underlying, potentially multidimensional, preference-space, we show that, on the whole, these standard methods fail to accurately describe the true structure of the data. Finally, we develop an approach that explicitly forces comparisons between policies and show that it outperforms extant methods.</p>
-        </div>
-      </div>
-    </div>
-  </article>
+<article class="paper">
+  <h3 class="paper-title">(Mis)Estimating Voter Preferences With Standard Survey Items</h3>
+  <p class="paper-meta">with Scott Abramson and Dot Sawler</p>
+  <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract">
+    <p>Researchers frequently aggregate survey questions to produce latent measures of voters' preferences. Often, these measures are interpreted in the context of the spatial model of voting. We highlight how this spatial interpretation of the standard IRT approach requires strong assumptions, especially when survey items do not impose a direct comparison of policy alternatives and include many ordered (Likert-like) response levels. To show that the manner in which we elicit preferences (i.e. the survey items themselves) can induce violations of these assumptions, we induce incentivized ground-truth multidimensional preferences in a survey setting. Then, using a battery of methods commonly used to project survey responses into an underlying, potentially multidimensional, preference-space, we show that, on the whole, these standard methods fail to accurately describe the true structure of the data. Finally, we develop an approach that explicitly forces comparisons between policies and show that it outperforms extant methods.</p>
+  </div>
+</article>
 
-  <article class="paper">
-    <h3 class="paper-title">Does Gerrymandering Distort Measures of Racial Vote Polarization?</h3>
-    <p class="paper-meta">with Mayya Komisarchik and Sidak Yntiso</p>
-    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-    <div class="abstract">
-      <div class="abstract-inner">
-        <div class="abstract-content">
-          <p>Academic and legal debates over racially polarized voting (RPV) hinge on a quantity we fundamentally cannot observe: individual vote choice. To date, most approaches to estimating vote choice by racial group -- including ecological regression (ER) and ecological inference (EI) -- work down from aggregate vote totals and estimates of voting age population by group. While researchers and practitioners are often interested in measuring racial vote polarization within districts, little is known about how the manipulation of district boundaries affects measurement performance. Using both formal analyses and simulation experiments, we demonstrate that strategic redistricting may induce ecological correlations that \textit{distort} \textit{RPV} measurement in precisely those maps \textit{most likely} to dilute minority votes. The key feature of our theory is that a district's racial composition serves as a signal of the decisive voter’s partisan attachments. If a mapmaker is not aligned with the minority-preferred (opposition) party, she has an incentive to place her party's strongest supporters in competitive high-minority-share districts, where outcomes are less certain, rather than in similar low-minority-share districts.  Using simulation experiments with varying levels of residential segregation, we show how pairing areas with low opposition support and low minority share alongside areas with relatively higher opposition support and minority share can induce upward biased ecological correlations. Our simulations further demonstrate that this bias cannot be attributed to assumptions about voters' preferences, the information available to mapmakers or political geography. We provide the first evidence that partisan redistricting impacts measurement strategies for RPV and may carry far-reaching, unexpected implications for vote-dilution claims.</p>
-        </div>
-      </div>
-    </div>
-  </article>
+<article class="paper">
+  <h3 class="paper-title">Does Gerrymandering Distort Measures of Racial Vote Polarization?</h3>
+  <p class="paper-meta">with Mayya Komisarchik and Sidak Yntiso</p>
+  <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract">
+    <p>Academic and legal debates over racially polarized voting (RPV) hinge on a quantity we fundamentally cannot observe: individual vote choice. To date, most approaches to estimating vote choice by racial group -- including ecological regression (ER) and ecological inference (EI) -- work down from aggregate vote totals and estimates of voting age population by group. While researchers and practitioners are often interested in measuring racial vote polarization within districts, little is known about how the manipulation of district boundaries affects measurement performance. Using both formal analyses and simulation experiments, we demonstrate that strategic redistricting may induce ecological correlations that distort RPV measurement in precisely those maps most likely to dilute minority votes. The key feature of our theory is that a district's racial composition serves as a signal of the decisive voter's partisan attachments. If a mapmaker is not aligned with the minority-preferred (opposition) party, she has an incentive to place her party's strongest supporters in competitive high-minority-share districts, where outcomes are less certain, rather than in similar low-minority-share districts. Using simulation experiments with varying levels of residential segregation, we show how pairing areas with low opposition support and low minority share alongside areas with relatively higher opposition support and minority share can induce upward biased ecological correlations. Our simulations further demonstrate that this bias cannot be attributed to assumptions about voters' preferences, the information available to mapmakers or political geography. We provide the first evidence that partisan redistricting impacts measurement strategies for RPV and may carry far-reaching, unexpected implications for vote-dilution claims.</p>
+  </div>
+</article>
 
-  <article class="paper">
-    <h3 class="paper-title">Green Industrial Policy as Presidential Pork? Evidence from the 2024 Presidential Election</h3>
-    <p class="paper-meta">with Lawrence Rothenberg</p>
-    <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-    <div class="abstract">
-      <div class="abstract-inner">
-        <div class="abstract-content">
-          <p>The 117th Congress authorized trillions of dollars in federal spending to rebuild American infrastructure and facilitate clean energy technologies. Many news outlets reported that spending was disproportionately targeted to 2024 Presidential election battleground states, leading critics to accuse the Biden administration of pursuing political gains. By contrast, senior Biden officials emphasized policy objectives such as re-shoring manufacturing jobs lost to trade liberalization, and that monies went to solidly Republican areas. Yet, given the large number of manufacturing communities in rust belt battleground states, re-shoring and political pursuits may have been functionally equivalent. However, following a uniform Republican swing in the 2024 election that included a sweep of swing states, some concluded that any particularistic motivations in allocating expenditures failed to generate increased Democratic support. But, just as monies flowing to battleground areas is not definitive evidence of particularism, a uniform national swing is not evidence of null electoral effects. In this analysis we address both concerns. We investigate issues of particularistic allocation and electoral effects utilizing transaction-level data on federal infrastructure outlays, information on the location, investment amount, and number of jobs created at private manufacturing sites announced under the IRA, and voting returns extending to the precinct-level. We find (1) little support for political targeting of funds, even if monies flowed to swing areas; and (2) some evidence of a causal impact of spending favoring the electoral fortunes of Kamala Harris. Thus, the Biden administration was seemingly pursuing broad policy goals but the expenditure of vast sums had some electoral consequences nonetheless.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-
-</main>
+<article class="paper">
+  <h3 class="paper-title">Green Industrial Policy as Presidential Pork? Evidence from the 2024 Presidential Election</h3>
+  <p class="paper-meta">with Lawrence Rothenberg</p>
+  <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract">
+    <p>The 117th Congress authorized trillions of dollars in federal spending to rebuild American infrastructure and facilitate clean energy technologies. Many news outlets reported that spending was disproportionately targeted to 2024 Presidential election battleground states, leading critics to accuse the Biden administration of pursuing political gains. By contrast, senior Biden officials emphasized policy objectives such as re-shoring manufacturing jobs lost to trade liberalization, and that monies went to solidly Republican areas. Yet, given the large number of manufacturing communities in rust belt battleground states, re-shoring and political pursuits may have been functionally equivalent. However, following a uniform Republican swing in the 2024 election that included a sweep of swing states, some concluded that any particularistic motivations in allocating expenditures failed to generate increased Democratic support. But, just as monies flowing to battleground areas is not definitive evidence of particularism, a uniform national swing is not evidence of null electoral effects. In this analysis we address both concerns. We investigate issues of particularistic allocation and electoral effects utilizing transaction-level data on federal infrastructure outlays, information on the location, investment amount, and number of jobs created at private manufacturing sites announced under the IRA, and voting returns extending to the precinct-level. We find (1) little support for political targeting of funds, even if monies flowed to swing areas; and (2) some evidence of a causal impact of spending favoring the electoral fortunes of Kamala Harris. Thus, the Biden administration was seemingly pursuing broad policy goals but the expenditure of vast sums had some electoral consequences nonetheless.</p>
+  </div>
+</article>
 
 <script>
 function toggleAbstract(button) {
   const abstract = button.nextElementSibling;
   abstract.classList.toggle('show');
-  button.classList.toggle('open');
 }
 </script>
 
